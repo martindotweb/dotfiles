@@ -9,7 +9,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set laststatus=0
 set cursorline
-set colorcolumn=155
+set colorcolumn=135
 set nocompatible
 set shiftwidth=2
 set tabstop=2
@@ -67,7 +67,7 @@ Plug 'mxw/vim-jsx'
 Plug 'mg979/vim-visual-multi'
 call plug#end()
 
-colorscheme onedark
+colorscheme elflord
 
 " AIRLINE
 if !exists('g:airline_symbols')
