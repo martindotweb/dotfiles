@@ -9,3 +9,6 @@
 <p>Icon Fonts: <a href="https://github.com/sebastiencs/icons-in-terminal">icons-in-terminal</a></p>
 <p>Shell: zsh (with <a href="https://ohmyz.sh/">Oh My Zsh</a>)</p>
 <p>Editor: Neovim</p>
+<p>OS: Void Linux</p>
+<p>File Manager: nnn</p>
+<p>Music Player: moc</p>
