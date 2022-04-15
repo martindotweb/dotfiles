@@ -11,4 +11,5 @@
 <p>Editor: <a href="https://neovim.io/">Neovim</a></p>
 <p>OS: <a href="https://voidlinux.org/">Void Linux</a></p>
 <p>File Manager: <a href="https://github.com/jarun/nnn">nnn</a></p>
-<p>Music Player: <a href="https://github.com/jonsafari/mocp">moc</a></p>
+<p>Music Player: <a href="https://github.com/jonsafari/mocp">Moc</a></p>
+<p><Terminal: <a href="https://alacritty.org/">Alacritty</a></p>
