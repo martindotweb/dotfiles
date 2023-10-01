@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="rkj"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -41,7 +41,7 @@ ZSH_THEME="rkj"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
- ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -60,7 +60,7 @@ ZSH_THEME="rkj"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
- HIST_STAMPS="dd/mm/yyyy"
+# HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -70,45 +70,76 @@ ZSH_THEME="rkj"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-syntax-highlighting zsh-autosuggestions git)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+plugins=(git)
 
 # Aliases
 
-alias c="clear"
-alias nv="nvim"
-alias installpkg="sudo xbps-install"
-alias removepkg="sudo xbps-remove -Rf"
-alias updaterepo="sudo xbps-install -Su && omz update"
-alias 'confzsh'="nvim $HOME/.zshrc && source $HOME/.zshrc"
-alias S="sudo shutdown now"
-alias R="sudo reboot"
-alias rf="rm -rf"
-alias rf!="sudo rm -rf"
-alias ht="htop"
-alias m="mocp"
-alias h="htop"
-alias l="ls"
-alias la="ls -a"
-alias mk="mkdir"
-alias s="sensors"
-alias py="python3"
-alias pytube="python3 $HOME/scripts/pytube/pyload.py"
+alias c='clear'
+alias ht='htop'
+alias xi='sudo xbps-install'
+alias s='sensors'
+alias xr='sudo xbps-remove -Rf'
+alias sy='sudo xbps-install -Su'
+alias gc='git clone --depth 1'
+alias d='dragon-drop -a -x $(ls -r | fzf -m)'
+alias sl='ls'
+alias g='git'
+alias th='touch'
+alias S='sudo poweroff'
+alias m='mocp'
+alias R='sudo reboot'
+alias mk='mkdir -p'
+alias rf='rm -rf'
+alias conf='nano ~/.zshrc; zsh'
+alias nv='nvim'
+alias bd='bun dev'
+alias bi='bun install'
+alias bid='bun install -D'
+alias bst='bun start'
+alias bb='bun build'
+alias br='bun remove'
+alias bt='bun test'
+alias bu='bun update'
+alias pd='pnpm dev'
+alias pi='pnpm i'
+alias pid='pnpm i -D'
+alias pst='pnpm start'
+alias pb='pnpm build'
+alias pr='pnpm remove'
+alias pt='pnpm test'
+alias pu='pnpm update'
+alias '?'='shell-genie ask'
+alias gpt='tgpt'
+alias weather='curl wttr.in'
+
+source $ZSH/oh-my-zsh.sh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+eval "$(starship init zsh)"
+
+# HSTR configuration - add this to ~/.zshrc
+alias hh=hstr                    # hh to be alias for hstr
+setopt histignorespace           # skip cmds w/ leading space from history
+export HSTR_CONFIG=hicolor       # get more colors
+bindkey -s "\C-r" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
+
+export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/tux/.bin
+
+# pnpm
+export PNPM_HOME="/home/tux/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+export FLYCTL_INSTALL="/home/tux/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# bun completions
+[ -s "/home/tux/.bun/_bun" ] && source "/home/tux/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
