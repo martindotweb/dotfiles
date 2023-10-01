@@ -1,4 +1,19 @@
 {
   "suggest.noselect": false,
-  "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact", "ejs": "html"}
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "javascript": "javascriptreact",
+    "ejs": "html",
+    "svelte": "html",
+    "typescript": "typescriptreact",
+    "astro": "html"
+  },
+  "diagnostic.messageTarget": "float",
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "diagnostic.virtualTextPrefix": "<-",
+  "typescript.suggest.autoImports": true,
+  "javascript.suggest.autoImports": true,
+  "svelte.enable-ts-plugin": true
 }
