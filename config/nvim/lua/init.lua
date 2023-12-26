@@ -22,37 +22,12 @@ require("nvim-tree").setup({
   },
 })
 
-require("mason").setup({
-  ui = {
-    icons = {
-      package_installed = "✓",
-      package_pending = "➜",
-      package_uninstalled = "✗"
-    }
-  }
+require('ayu').setup({
+    mirage = false, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
+    overrides = {}, -- A dictionary of group names, each associated with a dictionary of parameters (`bg`, `fg`, `sp` and `style`) and colors in hex.
 })
-
-require("lualine").setup()
 
 require("colorizer").setup()
-
-require("bufferline").setup({
-  options = {
-    hover = {
-      enabled = true,
-      delay = 200,
-      reveal = {'close'}
-    },
-    offsets = {
-      {
-        filetype = "NvimTree",
-        text = "File Explorer",
-        highlight = "Directory",
-        separator = true -- use a "true" to enable the default, or set your own character
-      }
-    }
-  }
-})
 
 _G.__luacache_config = {
   chunks = {
@@ -64,29 +39,6 @@ _G.__luacache_config = {
     path = vim.fn.stdpath('cache')..'/luacache_modpaths',
   }
 }
-require('impatient').enable_profile()
-
-require('hlchunk').setup({
-    indent = {
-        enable = true,
-        use_treesitter = false,
-        chars = {
-          "│",
-        },
-        style = {
-          { fg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui") }
-        },
-    },
-    blank = {
-      enable = true,
-      chars = {
-        "",
-      },
-      style = {
-        vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
-      },
-    }
-})
 
 require("nvterm").setup()
 
@@ -100,12 +52,9 @@ local mappings = {
   { 'n', '<C-l>', function () terminal.send(ft_cmds[vim.bo.filetype]) end },
   { toggle_modes, '<C-g>', function () terminal.toggle('horizontal') end },
   { toggle_modes, '<C-v>', function () terminal.toggle('vertical') end },
-  { toggle_modes, '<C-i>', function () terminal.toggle('float') end },
+  --{ toggle_modes, '<C-i>', function () terminal.toggle('float') end },
 }
 local opts = { noremap = true, silent = true }
 for _, mapping in ipairs(mappings) do
   vim.keymap.set(mapping[1], mapping[2], mapping[3], opts)
 end
-
-
-require('dashboard').setup()
