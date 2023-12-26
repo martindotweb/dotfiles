@@ -1,26 +1,13 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
@@ -28,7 +15,6 @@ ZSH_THEME="robbyrussell"
 # zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
-# Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
@@ -41,7 +27,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -52,7 +38,7 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -62,80 +48,51 @@ ZSH_THEME="robbyrussell"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-# Aliases
+source $ZSH/oh-my-zsh.sh
 
-alias c='clear'
-alias ht='htop'
-alias xi='sudo xbps-install'
-alias s='sensors'
-alias xr='sudo xbps-remove -Rf'
-alias sy='sudo xbps-install -Su'
-alias gc='git clone --depth 1'
-alias d='dragon-drop -a -x $(ls -r | fzf -m)'
-alias sl='ls'
 alias g='git'
-alias th='touch'
-alias S='sudo poweroff'
-alias m='mocp'
-alias R='sudo reboot'
-alias mk='mkdir -p'
-alias rf='rm -rf'
-alias conf='nano ~/.zshrc; zsh'
-alias nv='nvim'
+alias gc='git clone --depth=1'
+alias gs='git status'
+alias ga='git add'
+alias gb='git branch -M'
+alias gd='git diff'
+alias gco='git checkout'
+alias gcm='git commit -m'
+alias gpl='git pull'
+alias gps='git push -u origin'
+alias v='nvim'
+alias c='clear'
 alias bd='bun dev'
 alias bi='bun install'
-alias bid='bun install -D'
-alias bst='bun start'
-alias bb='bun build'
+alias bt='bun run test'
 alias br='bun remove'
-alias bt='bun test'
-alias bu='bun update'
-alias pd='pnpm dev'
-alias pi='pnpm i'
-alias pid='pnpm i -D'
-alias pst='pnpm start'
-alias pb='pnpm build'
-alias pr='pnpm remove'
-alias pt='pnpm test'
-alias pu='pnpm update'
-alias '?'='shell-genie ask'
-alias gpt='tgpt'
-alias weather='curl wttr.in'
-
-source $ZSH/oh-my-zsh.sh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+alias xi='sudo xbps-install'
+alias xr='sudo xbps-remove -Rf'
+alias sy='sudo xbps-install -Su'
+alias ht='htop'
+alias s='sensors'
+alias th='touch'
+alias mk='mkdir -p'
+alias sl='ls'
+alias S='sudo poweroff'
+alias R='sudo reboot'
+alias conf='nvim ~/.zshrc && zsh'
+alias m='mocp'
+alias t='tmux'
+alias rf='rm -rf'
+alias py='python3'
+alias '?'='tgpt -s'
+alias pysetupenv='python3 -m venv . && chmod +x ./bin/activate && ./bin/activate'
+alias pyenv='./bin/python3'
+alias pipenv='./bin/pip'
 
 eval "$(starship init zsh)"
-
-# HSTR configuration - add this to ~/.zshrc
-alias hh=hstr                    # hh to be alias for hstr
-setopt histignorespace           # skip cmds w/ leading space from history
-export HSTR_CONFIG=hicolor       # get more colors
-bindkey -s "\C-r" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
-
-export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/tux/.bin
-
-# pnpm
-export PNPM_HOME="/home/tux/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-export FLYCTL_INSTALL="/home/tux/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /home/tux/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # bun completions
 [ -s "/home/tux/.bun/_bun" ] && source "/home/tux/.bun/_bun"
