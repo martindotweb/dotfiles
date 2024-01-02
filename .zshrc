@@ -24,10 +24,10 @@ ZSH_THEME="robbyrussell"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+#ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -89,6 +89,9 @@ alias '?'='tgpt -s'
 alias pysetupenv='python3 -m venv . && chmod +x ./bin/activate && ./bin/activate'
 alias pyenv='./bin/python3'
 alias pipenv='./bin/pip'
+alias ni="npm ci --no-audit --no-fund --no-optional"
+alias nr="npm remove --no-audit --no-fund --no-optional"
+alias nu="npm update --no-audit --no-fund --no-optional"
 
 eval "$(starship init zsh)"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
