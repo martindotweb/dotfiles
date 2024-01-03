@@ -13,12 +13,13 @@ set encoding=utf-8
 set fileencoding=utf-8
 set ruler
 set mouse=a
-set cursorline
+set cursorline 
 filetype on
 filetype indent on
 filetype plugin on
 set backspace=indent,eol,start
 set ttyfast
+set iskeyword+=-
 
 imap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
