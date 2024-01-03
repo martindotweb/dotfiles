@@ -33,6 +33,8 @@ map <A-Left> :tabprevious<CR>
 map <C-s> :w<CR>
 map <C-q> :q<CR>
 map <C-f> /
+map <C-p> :Telescope find_files<CR>
+map <C-r> :Telescope live_grep<CR>
 map <C-z> :undo<CR>
 map <C-y> :redo<CR>
 map <C-b> :NvimTreeToggle<CR>
@@ -57,6 +59,10 @@ Plug 'NvChad/nvterm'
 Plug 'Shatur/neovim-ayu'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 call plug#end()
 
 color ayu-dark
