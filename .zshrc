@@ -92,6 +92,9 @@ alias pipenv='./bin/pip'
 alias ni="npm ci --no-audit --no-fund --no-optional"
 alias nr="npm remove --no-audit --no-fund --no-optional"
 alias nu="npm update --no-audit --no-fund --no-optional"
+alias ls="exa --icons"
+alias ll="exa --icons -l"
+alias la="exa --icons -la"
 
 eval "$(starship init zsh)"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
