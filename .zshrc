@@ -95,6 +95,7 @@ alias nu="npm update --no-audit --no-fund --no-optional"
 alias ls="exa --icons"
 alias ll="exa --icons -l"
 alias la="exa --icons -la"
+alias cat="bat"
 
 eval "$(starship init zsh)"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
