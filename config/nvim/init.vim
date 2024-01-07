@@ -19,7 +19,8 @@ filetype indent on
 filetype plugin on
 set backspace=indent,eol,start
 set ttyfast
-set iskeyword+=-
+set noswapfile
+set nobackup
 
 imap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
@@ -28,9 +29,9 @@ imap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 imap ii <Esc>
 
 map <C-t> :tabnew<CR>
-map <C-w> :tabclose<CR>
-map <A-Right> :tabnext<CR>
-map <A-Left> :tabprevious<CR>
+map <C-w> :bd<CR>
+map <A-Right> :BufferLineCycleNext<CR>
+map <A-Left> :BufferLineCyclePrev<CR>
 map <C-s> :w<CR>
 map <C-q> :q<CR>
 map <C-f> /
@@ -40,6 +41,7 @@ map <C-z> :undo<CR>
 map <C-y> :redo<CR>
 map <C-b> :NvimTreeToggle<CR>
 map <Tab> :Prettier<CR>
+map <C-k> :lua require('rest-nvim').run()<CR>
 
 " PLUGINS
 
@@ -64,13 +66,19 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
+Plug 'folke/tokyonight.nvim'
+Plug 'airblade/vim-gitgutter'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'akinsho/bufferline.nvim'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'rest-nvim/rest.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
 
-color ayu-dark
+color tokyonight-night
 source ~/.config/nvim/lua/lazy.lua
 source ~/.config/nvim/lua/init.lua
 
 let g:coc_global_extensions = [ 'coc-tsserver' ]
-
 let g:astro_typescript = 'enable'
 let g:astro_stylus = 'enable'
