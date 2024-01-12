@@ -73,9 +73,10 @@ Plug 'akinsho/bufferline.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'rest-nvim/rest.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
 
-color tokyonight-night
+color catppuccin
 source ~/.config/nvim/lua/lazy.lua
 source ~/.config/nvim/lua/init.lua
 
