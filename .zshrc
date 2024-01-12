@@ -89,9 +89,9 @@ alias '?'='tgpt -s'
 alias pysetupenv='python3 -m venv . && chmod +x ./bin/activate && ./bin/activate'
 alias pyenv='./bin/python3'
 alias pipenv='./bin/pip'
-alias ni="npm ci --no-audit --no-fund --no-optional"
-alias nr="npm remove --no-audit --no-fund --no-optional"
-alias nu="npm update --no-audit --no-fund --no-optional"
+alias ni="npm i --no-audit --no-fund --omit=optional"
+alias nr="npm remove --no-audit --no-fund"
+alias nu="npm update --no-audit --no-fund"
 alias ls="exa --icons"
 alias ll="exa --icons -l"
 alias la="exa --icons -la"
