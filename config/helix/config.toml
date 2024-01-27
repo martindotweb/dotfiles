@@ -1,0 +1,51 @@
+theme = "fleet_dark"
+
+[editor]
+line-number = "relative"
+mouse = true
+cursorline = true
+auto-save = true
+bufferline = "always"
+color-modes = true
+auto-pairs = true
+gutters = ["diff", "diagnostics", "line-numbers", "spacer"]
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name"]
+center = []
+right = ["version-control", "diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.indent-guides]
+render = true
+character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 25 # increase value to reduce forced mid-word wrapping
+max-indent-retain = 0
+wrap-indicator = ""  # set wrap-indicator to "" to hide it
+
+# At most one section each of 'keys.normal', 'keys.insert' and 'keys.select'
+[keys.normal]
+C-s = ":w"
+C-t = ":new"
+C-w = ":buffer-close"
+A-left = ":buffer-previous"
+A-right = ":buffer-next"
+C-o = ":open no_op"
+C-left = "move_prev_word_start"
+C-right = "move_next_word_end"
+c = { c = ["extend_to_line_bounds", "trim_selections", "change_selection"] }
