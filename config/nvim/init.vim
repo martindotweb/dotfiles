@@ -13,12 +13,13 @@ set encoding=utf-8
 set fileencoding=utf-8
 set ruler
 set mouse=a
-set cursorline 
+set cursorline
 filetype on
 filetype indent on
 filetype plugin on
 set backspace=indent,eol,start
 set ttyfast
+set iskeyword+=-
 set noswapfile
 set nobackup
 
@@ -29,9 +30,9 @@ imap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 imap ii <Esc>
 
 map <C-t> :tabnew<CR>
-map <C-w> :bd<CR>
-map <A-Right> :BufferLineCycleNext<CR>
-map <A-Left> :BufferLineCyclePrev<CR>
+map <C-w> :tabclose<CR>
+map <A-Right> :tabnext<CR>
+map <A-Left> :tabprevious<CR>
 map <C-s> :w<CR>
 map <C-q> :q<CR>
 map <C-f> /
@@ -41,11 +42,11 @@ map <C-z> :undo<CR>
 map <C-y> :redo<CR>
 map <C-b> :NvimTreeToggle<CR>
 map <Tab> :Prettier<CR>
-map <C-k> :lua require('rest-nvim').run()<CR>
 
 " PLUGINS
 
 call plug#begin('~/.vim/plugged')
+Plug 'lewis6991/impatient.nvim'
 Plug 'scrooloose/syntastic'
 Plug 'raimondi/delimitmate'
 Plug 'neoclide/coc.nvim'
@@ -59,27 +60,20 @@ Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'NvChad/nvterm'
-Plug 'Shatur/neovim-ayu'
 Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
-Plug 'folke/tokyonight.nvim'
-Plug 'airblade/vim-gitgutter'
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'akinsho/bufferline.nvim'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'rest-nvim/rest.nvim'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'dstein64/vim-startuptime'
+Plug 'felipeagc/fleet-theme-nvim'
 call plug#end()
 
-color catppuccin
+color fleet
 source ~/.config/nvim/lua/lazy.lua
 source ~/.config/nvim/lua/init.lua
 
 let g:coc_global_extensions = [ 'coc-tsserver' ]
+
 let g:astro_typescript = 'enable'
 let g:astro_stylus = 'enable'
