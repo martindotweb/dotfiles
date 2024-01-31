@@ -63,13 +63,17 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
 
     # File Explorer
     ([mod], "e", lazy.spawn("pcmanfm")),
+    ([mod], "F4", lazy.spawn("alacritty -e fff")),
 
     # Terminal
     ([mod], "Return", lazy.spawn("alacritty")),
 
+    # Editor
+    ([mod], "s", lazy.spawn("code-oss")),
+
     # Screenshot
-    ([mod], "s", lazy.spawn("scrot")),
-    ([mod, "shift"], "s", lazy.spawn("scrot -s")),
+    ([mod], "Print", lazy.spawn("scrot")),
+    ([mod, "shift"], "Print", lazy.spawn("scrot -s")),
 
     # ------------ Hardware Configs ------------
 

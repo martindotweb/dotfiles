@@ -30,9 +30,9 @@ imap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 imap ii <Esc>
 
 map <C-t> :tabnew<CR>
-map <C-w> :tabclose<CR>
-map <A-Right> :tabnext<CR>
-map <A-Left> :tabprevious<CR>
+map <C-w> :bd<CR>
+map <A-Right> :BufferLineCycleNext<CR>
+map <A-Left> :BufferLineCyclePrev<CR>
 map <C-s> :w<CR>
 map <C-q> :q<CR>
 map <C-f> /
@@ -67,9 +67,12 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 Plug 'dstein64/vim-startuptime'
 Plug 'felipeagc/fleet-theme-nvim'
+Plug 'folke/tokyonight.nvim'
+Plug 'akinsho/bufferline.nvim'
+Plug 'nvim-lualine/lualine.nvim'
 call plug#end()
 
-color fleet
+color tokyonight-night
 source ~/.config/nvim/lua/lazy.lua
 source ~/.config/nvim/lua/init.lua
 

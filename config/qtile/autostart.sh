@@ -1,5 +1,7 @@
 #!/bin/dash
 setxkbmap es &
-feh --bg-fill ~/Pictures/1.png &
+feh --bg-fill ~/Pictures/wall.jpg &
 picom &
 redshift &
+connman-gtk &
+pulseaudio &
