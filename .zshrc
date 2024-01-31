@@ -84,13 +84,16 @@ alias m='mocp'
 alias t='tmux'
 alias rf='rm -rf'
 alias py='python3'
-alias '?'='tgpt -s'
+alias '?'='tgpt --provider phind'
 alias pysetupenv='python3 -m venv . && chmod +x ./bin/activate && ./bin/activate'
 alias pyenv='./bin/python3'
 alias pipenv='./bin/pip'
 alias ni="npm i --no-audit --no-fund --omit=optional"
 alias nr="npm remove --no-audit --no-fund"
 alias nu="npm update --no-audit --no-fund"
+alias ls="exa --icons"
+alias ll="exa -l --icons"
+alias la="exa -la --icons"
 
 eval "$(starship init zsh)"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
