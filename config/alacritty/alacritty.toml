@@ -1,0 +1,48 @@
+[colors.bright]
+black = "0x4c4c4c"
+blue = "0xa39ec4"
+cyan = "0x9ec3c4"
+green = "0x9ec49f"
+magenta = "0xc49ec4"
+red = "#CC7F8A"
+white = "0xf5f5f5"
+yellow = "#9CB1D8"
+
+[colors.normal]
+black = "0x262626"
+blue = "#98cee9"
+cyan = "#7DA9AB"
+green = "#68b999"
+magenta = "#9681C2"
+red = "#d16271"
+white = "0xe7e7e7"
+yellow = "#718fc8"
+
+[colors.primary]
+background = "#000000"
+foreground = "0xf0f0f0"
+
+[cursor.style]
+shape = "Beam"
+
+[font]
+size = 10
+
+[font.bold]
+family = "Mononoki NerdFont"
+style = "Bold"
+
+[font.italic]
+family = "Mononoki NerdFont"
+style = "Bold Italic"
+
+[font.normal]
+family = "Mononoki NerdFont"
+style = "Bold"
+
+[window]
+opacity = 0.85
+
+[window.padding]
+x = 2
+y = 2
