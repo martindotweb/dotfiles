@@ -6,7 +6,7 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 static char *font = "CaskaydiaCove NerdFont:pixelsize=14:antialias=true:autohint=true";
-static char *font2 = "CaskaydiaCove NerdFont:pixelsize=9:antialias=true:autohint=true";
+static char *font2 = "CaskaydiaCove NerdFont Bold:pixelsize=9:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
