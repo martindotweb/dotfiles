@@ -66,13 +66,12 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 Plug 'dstein64/vim-startuptime'
-Plug 'felipeagc/fleet-theme-nvim'
-Plug 'folke/tokyonight.nvim'
 Plug 'akinsho/bufferline.nvim'
 Plug 'nvim-lualine/lualine.nvim'
+Plug 'iagorrr/noctishc.nvim'
 call plug#end()
 
-color tokyonight-night
+color noctishc
 source ~/.config/nvim/lua/lazy.lua
 source ~/.config/nvim/lua/init.lua
 

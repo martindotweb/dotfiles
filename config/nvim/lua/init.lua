@@ -48,7 +48,6 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
--- OR setup with some options
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
   view = {
@@ -56,6 +55,16 @@ require("nvim-tree").setup({
   },
   renderer = {
     group_empty = true,
+    icons = {
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = true,
+        git = true,
+        modified = true,
+        diagnostics = true,
+      }
+    }
   },
   filters = {
     dotfiles = false,
