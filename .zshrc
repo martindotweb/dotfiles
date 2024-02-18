@@ -1,7 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="gianu"
 
 export PATH="/home/tux/.turso:/home/tux/.bun/bin:/home/tux/.turso:/home/tux/.local/share/pnpm:/home/tux/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin:/home/tux/.local/bin"
 
@@ -63,41 +63,31 @@ alias gco='git checkout'
 alias gcm='git commit -m'
 alias gpl='git pull'
 alias gps='git push -u origin'
-alias v='nvim'
+alias nv='nvim'
 alias c='clear'
 alias bd='bun dev'
 alias bi='bun install'
 alias bt='bun run test'
 alias br='bun remove'
-alias xi='sudo xbps-install'
-alias xr='sudo xbps-remove -Rf'
-alias sy='sudo xbps-install -Su'
+alias xi='doas xbps-install'
+alias xr='doas xbps-remove -Rf'
+alias sy='doas xbps-install -Su'
 alias ht='htop'
 alias s='sensors'
 alias th='touch'
 alias mk='mkdir -p'
 alias sl='ls'
-alias S='sudo poweroff'
-alias R='sudo reboot'
+alias S='doas poweroff'
+alias R='doas reboot'
 alias conf='nvim ~/.zshrc && zsh'
 alias m='mocp'
 alias t='tmux'
 alias rf='rm -rf'
 alias py='python3'
-alias '?'='tgpt --provider phind'
-alias pysetupenv='python3 -m venv . && chmod +x ./bin/activate && ./bin/activate'
-alias pyenv='./bin/python3'
-alias pipenv='./bin/pip'
-alias ni="npm i --no-audit --no-fund --omit=optional"
-alias nr="npm remove --no-audit --no-fund"
-alias nu="npm update --no-audit --no-fund"
-alias ls="exa --icons"
-alias ll="exa -l --icons"
-alias la="exa -la --icons"
 
-eval "$(starship init zsh)"
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /home/tux/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#eval "$(starship init zsh)"
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # bun completions
 [ -s "/home/tux/.bun/_bun" ] && source "/home/tux/.bun/_bun"
@@ -114,21 +104,4 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# Turso
-export PATH="/home/tux/.turso:$PATH"
-
-# HSTR configuration - add this to ~/.zshrc
-alias hh=hstr                    # hh to be alias for hstr
-setopt histignorespace           # skip cmds w/ leading space from history
-export HSTR_CONFIG=hicolor       # get more colors
-hstr_no_tiocsti() {
-    zle -I
-    { HSTR_OUT="$( { </dev/tty hstr ${BUFFER}; } 2>&1 1>&3 3>&- )"; } 3>&1;
-    BUFFER="${HSTR_OUT}"
-    CURSOR=${#BUFFER}
-    zle redisplay
-}
-zle -N hstr_no_tiocsti
-bindkey '\C-r' hstr_no_tiocsti
-export HSTR_TIOCSTI=n
-
+unset HISTFILE
