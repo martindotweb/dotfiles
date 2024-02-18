@@ -1,5 +1,6 @@
 slstatus &
 setxkbmap es &
-feh --bg-fill ~/Pictures/1.png &
+feh --bg-fill ~/Pictures/walls/1_0.png &
 picom &
 redshift &
+nm-applet &
