@@ -13,11 +13,11 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;        /* 0 means no systray */
 static const char *fonts[]          = { "CaskaydiaCove NerdFont:size=10" };
 static const char dmenufont[]       = "CaskaydiaCove NerdFont:size=10";
-static const char col_gray1[]       = "#020908";
-static const char col_gray2[]       = "#020908";
-static const char col_gray3[]       = "#6C988C";
-static const char col_gray4[]       = "#020908";
-static const char col_cyan[]        = "#6C988C";
+static const char col_gray1[]       = "#050209";
+static const char col_gray2[]       = "#050209";
+static const char col_gray3[]       = "#832CD2";
+static const char col_gray4[]       = "#050209";
+static const char col_cyan[]        = "#832CD2";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -64,7 +64,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0";
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *browser[]  = { "librewolf", NULL };
+static const char *browser[]  = { "brave-browser-stable", NULL };
 static const char *fileManager[]  = { "alacritty", "-e", "fff", NULL };
 
 static const char *scr[] = { "scrot", NULL };
