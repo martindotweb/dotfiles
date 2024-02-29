@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="gianu"
 
-export PATH="/home/tux/.turso:/home/tux/.bun/bin:/home/tux/.turso:/home/tux/.local/share/pnpm:/home/tux/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin:/home/tux/.local/bin"
+export PATH="/home/tux/.bun/bin:/home/tux/.turso:/home/tux/.local/share/pnpm:/home/tux/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/sbin:/bin:/home/tux/.local/bin"
 
 # CASE_SENSITIVE="true"
 
@@ -26,7 +26,7 @@ export PATH="/home/tux/.turso:/home/tux/.bun/bin:/home/tux/.turso:/home/tux/.loc
 #DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-#ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -84,8 +84,9 @@ alias m='mocp'
 alias t='tmux'
 alias rf='rm -rf'
 alias py='python3'
+alias requests='watch -n8 lsof -i'
 
-#eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -103,5 +104,3 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-unset HISTFILE
