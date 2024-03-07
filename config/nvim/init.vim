@@ -40,7 +40,7 @@ map <C-p> :Telescope find_files<CR>
 map <C-r> :Telescope live_grep<CR>
 map <C-z> :undo<CR>
 map <C-y> :redo<CR>
-map <C-b> :NvimTreeToggle<CR>
+map <C-b> :NvimTreeFindFile<CR>
 map <Tab> :Prettier<CR>
 
 " PLUGINS
@@ -63,15 +63,16 @@ Plug 'NvChad/nvterm'
 Plug 'yuezk/vim-js'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
-Plug 'dstein64/vim-startuptime'
 Plug 'akinsho/bufferline.nvim'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'iagorrr/noctishc.nvim'
+Plug 'jackiehluo/vim-material'
 call plug#end()
+" After install vim-material theme add the following lines in ~/.vim/plugged/vim-material/colors/material.vim
+" highlight CocMenuSel ctermbg=19 guibg=#0E1619
+" highlight NvimTreeWinSeparator guifg=#37474F
 
-color noctishc
+color material
 source ~/.config/nvim/lua/lazy.lua
 source ~/.config/nvim/lua/init.lua
 
