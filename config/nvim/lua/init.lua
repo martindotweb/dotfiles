@@ -1,9 +1,14 @@
 require('impatient')
-require("bufferline").setup()
+require('bufferline').setup()
+
+local custom_theme = require'lualine.themes.iceberg_dark'
+
+-- Change the background of lualine_c section for normal mode
+custom_theme.normal.c.bg = '#000000'
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'auto',
+    theme = custom_theme,
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {

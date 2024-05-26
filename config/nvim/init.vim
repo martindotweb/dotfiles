@@ -68,9 +68,27 @@ Plug 'akinsho/bufferline.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'jackiehluo/vim-material'
 call plug#end()
-" After install vim-material theme add the following lines in ~/.vim/plugged/vim-material/colors/material.vim
-" highlight CocMenuSel ctermbg=19 guibg=#0E1619
-" highlight NvimTreeWinSeparator guifg=#37474F
+
+" VIM_MATERIAL
+" GUI color definitions
+"let s:gui00 = "050608"
+"let s:gui01 = "14191C"
+"let s:gui02 = "546E7A"
+"let s:gui03 = "5C7E8C"
+"let s:gui04 = "80CBC4"
+"let s:gui05 = "C792EA"
+"let s:gui06 = "7986CB"
+"let s:gui07 = "82B1FF"
+"let s:gui08 = "8BD649"
+"let s:gui09 = "C3E88D"
+"let s:gui0A = "CDD3DE"
+"let s:gui0B = "EC5F67"
+"let s:gui0C = "F1E655"
+"let s:gui0D = "F77669"
+"let s:gui0E = "F8E71C"
+"let s:gui0F = "FFFFFF"
+"
+"highlight NvimTreeWinSeparator guifg=#37474F
 
 color material
 source ~/.config/nvim/lua/lazy.lua
