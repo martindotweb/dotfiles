@@ -1,5 +1,5 @@
 # dwm version
-VERSION = 6.4
+VERSION = 6.5
 
 # Customize below to fit your system
 
@@ -36,4 +36,4 @@ LDFLAGS  = ${LIBS}
 #LDFLAGS = ${LIBS}
 
 # compiler and linker
-CC = cc
+CC = tcc
