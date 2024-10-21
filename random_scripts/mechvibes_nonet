@@ -1,0 +1,4 @@
+#/bin/dash
+rm -rf ~/mechvibes.log mechvibes_custom
+firejail --noprofile --netlock ~/.local/bin/mechvibes
+rm -rf ~/mechvibes.log mechvibes_custom
