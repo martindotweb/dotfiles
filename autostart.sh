@@ -1,6 +1,5 @@
-slstatus &
+#!/bin/dash
 setxkbmap es &
-feh --bg-max ~/Pictures/wall2.png &
-picom &
+slstatus &
 redshift &
-connman-gtk &
+pulseaudio --daemonize &
