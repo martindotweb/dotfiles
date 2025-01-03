@@ -5,14 +5,18 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const unsigned int gappx     = 0;        /* gaps between windows */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#0A0A0A";
-static const char col_gray2[]       = "#0A0A0A";
-static const char col_gray3[]       = "#DDDDDD";
-static const char col_gray4[]       = "#DDDDDD";
-static const char col_cyan[]        = "#495050";
+static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
+static const unsigned int systrayspacing = 2;   /* systray spacing */
+static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const int showsystray        = 1;        /* 0 means no systray */
+static const char *fonts[]          = { "monospace:size=11" };
+static const char dmenufont[]       = "monospace:size=11";
+static const char col_gray1[]       = "#000000";
+static const char col_gray2[]       = "#000000";
+static const char col_gray3[]       = "#86B09D";
+static const char col_gray4[]       = "#86B09D";
+static const char col_cyan[]        = "#141414";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -59,17 +63,21 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0";
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *roficmd[] = { "rofi", "-show", "drun", "-theme", "android_notification", "-show-icons", NULL };
+static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
 static const char *termcmd[] = { "alacritty", NULL };
-static const char *browser[] = { "librewolf", NULL };
-static const char *fileManager[] = { "alacritty", "-e", "fff", NULL };
+static const char *browser[] = { "brave-browser-stable", NULL };
+static const char *fileManager[] = { "st", "-e", "fff", NULL };
 
 static const char *scr[] = { "scrot", NULL };
 static const char *scrSelective[] = { "scrot", "-s", NULL };
 
+static const char *startAll[] = { "/home/korakot/.dwm/autostart.sh", NULL };
+
 #include <X11/XF86keysym.h>
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+  { MODKEY|ShiftMask,             XK_a,     spawn,           {.v = startAll } },
+
   { MODKEY,                       XK_F1,     spawn,          {.v = browser } },
   { MODKEY,                       XK_Print,  spawn,          {.v = scr } },
   { MODKEY|ShiftMask,             XK_Print,  spawn,          {.v = scrSelective } },
@@ -103,11 +111,6 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-
-  { MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
- 	{ MODKEY,                       XK_plus,   setgaps,        {.i = +1 } },
- 	{ MODKEY|ShiftMask,             XK_r,      setgaps,        {.i = 0  } },
-
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
